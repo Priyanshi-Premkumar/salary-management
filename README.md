@@ -200,3 +200,21 @@ mvn clean test
 - **Database**: PostgreSQL 16 with `btree_gist` extension, HikariCP connection pool.
 - **Frontend**: React 18, Vite 5, TypeScript 5, Tailwind CSS, TanStack Query (React Query v5), Recharts, Lucide React, Axios.
 - **DevOps**: Docker, Docker Compose, Multi-stage Dockerfiles, Nginx Alpine.
+
+---
+
+## 8. Documentation & Specifications
+
+| Document | Description |
+| :--- | :--- |
+| **[Project Overview](PROJECT_OVERVIEW.md)** | Deep dive into business problem, engineering solutions, and architectural principles |
+| **[Requirements Summary](REQUIREMENTS.md)** | Executive requirements summary and SLAs |
+| **[Product Requirements Document (PRD)](docs/requirements.md)** | Full 7-domain functional matrix, enterprise SLAs, and acceptance criteria |
+| **[System Architecture](docs/architecture.md)** | Clean Architecture layers, modular monolith design, and port boundaries |
+| **[Database Design & Integrity](docs/database-design.md)** | Schema design, PostgreSQL `btree_gist` exclusion constraints, and index strategies |
+| **[API Design & Contracts](docs/api-design.md)** | REST endpoints, OpenAPI 3 definitions, and error handling |
+| **[Testing Strategy](docs/testing-strategy.md)** | Multi-tier test pyramid (ArchUnit, JUnit 5, Mockito, Testcontainers, E2E) |
+| **[Architecture Trade-offs](docs/trade-offs.md)** | Modular monolith vs microservices, pessimistic vs optimistic locking, etc. |
+| **[Architecture Presentation Deck](ACME_CompensationOS_Architecture_Presentation.pptx)** | 35-slide editable PowerPoint presentation with full speaker notes |
+| **[Presentation Transcript](docs/presentation.md)** | Slide-by-slide slide transcript and speaker notes |
+
