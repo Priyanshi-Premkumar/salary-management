@@ -14,8 +14,8 @@ public interface JpaAuditLogRepository extends JpaRepository<SalaryAuditLogEntit
 
     @Query("SELECT a FROM SalaryAuditLogEntity a WHERE " +
            "(:employeeId IS NULL OR a.employeeId = :employeeId) " +
-           "AND (:startDate IS NULL OR a.changedAt >= :startDate) " +
-           "AND (:endDate IS NULL OR a.changedAt <= :endDate) " +
+           "AND (cast(:startDate as timestamp) IS NULL OR a.changedAt >= :startDate) " +
+           "AND (cast(:endDate as timestamp) IS NULL OR a.changedAt <= :endDate) " +
            "ORDER BY a.changedAt DESC")
     Page<SalaryAuditLogEntity> searchAuditLogs(
             @Param("employeeId") Long employeeId,
@@ -25,8 +25,8 @@ public interface JpaAuditLogRepository extends JpaRepository<SalaryAuditLogEntit
 
     @Query("SELECT a FROM SalaryAuditLogEntity a WHERE " +
            "(:employeeId IS NULL OR a.employeeId = :employeeId) " +
-           "AND (:startDate IS NULL OR a.changedAt >= :startDate) " +
-           "AND (:endDate IS NULL OR a.changedAt <= :endDate) " +
+           "AND (cast(:startDate as timestamp) IS NULL OR a.changedAt >= :startDate) " +
+           "AND (cast(:endDate as timestamp) IS NULL OR a.changedAt <= :endDate) " +
            "ORDER BY a.changedAt DESC")
     List<SalaryAuditLogEntity> findAllFiltered(
             @Param("employeeId") Long employeeId,
