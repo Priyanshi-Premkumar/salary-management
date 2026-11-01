@@ -1,0 +1,92 @@
+# ==========================================
+# ACME CompensationOS: Master .gitignore
+# ==========================================
+
+# 1. Environment & Secret Configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+*.id_rsa
+*.keystore
+secrets.yml
+secrets.yaml
+
+# 2. Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 3. IDEs & Code Editors
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 4. Backend (Java / Maven / Spring Boot)
+backend/target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+.flattened-pom.xml
+hs_err_pid*
+replay_pid*
+
+# 5. Frontend (Node.js / React / Vite / TypeScript)
+frontend/node_modules/
+**/node_modules/
+frontend/dist/
+**/dist/
+frontend/build/
+**/build/
+.vite/
+*.local
+.npm
+.eslintcache
+.stylelintcache
+ts-node/
+
+# 6. Test Reports, Coverage & Analysis
+**/surefire-reports/
+**/failsafe-reports/
+**/jacoco/
+**/jacoco.exec
+**/coverage/
+.nyc_output/
+*.lcov
+
+# 7. Logs & Temporary Files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.tmp
+*.bak
+*.dump
+*.stackdump
