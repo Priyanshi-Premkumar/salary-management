@@ -41,8 +41,9 @@ Prior to CompensationOS, ACME managed compensation for 10,000 employees across 5
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              FRONTEND TIER                                  │
-│   React 18 • Vite 5 • TypeScript 5 • Tailwind CSS 3 • TanStack Query v5    │
-│   React Hook Form • Zod • Recharts 2 • Lucide Icons • Axios                 │
+│   • React 18: Vite 5 • TypeScript 5 • Tailwind CSS 3 • TanStack Query v5    │
+│   • Angular 18: Standalone Components • Angular Signals • RxJS • Tailwind 3 │
+│     @lucide/angular • Chart.js 4 / ng2-charts 6 • Netlify SPA Config        │
 └──────────────────────────────────────┬──────────────────────────────────────┘
                                        │ HTTPS / REST / JWT Bearer Tokens
                                        ▼

@@ -10,32 +10,33 @@
 ACME CompensationOS is built according to **Domain-Driven Design (DDD)** and **Clean Architecture (Hexagonal / Ports and Adapters)** principles. It provides enterprise-grade compensation workflows, effective-dated salary revisions, atomic change auditing, and statistical compensation analytics across multiple isolated sovereign currencies.
 
 ```
-+---------------------------------------------------------------------------------------+
-|                                    React 18 Frontend                                  |
-|         (Vite + TypeScript + Tailwind CSS + TanStack Query + Lucide Icons + Recharts) |
-+---------------------------------------------------------------------------------------+
-                                           |  HTTPS / REST / JWT
-                                           v
-+---------------------------------------------------------------------------------------+
-|                               Spring Boot 3.3.4 (Java 21/22)                          |
-|                                                                                       |
-|  [ API Layer ]         REST Controllers, OpenAPI/Swagger 3, DTOs, Exception Advice    |
-|       |                                                                               |
-|  [ Application Layer ] Use Cases / Services, Inbound/Outbound Ports, DTO Mappers     |
-|       |                                                                               |
-|  [ Domain Layer ]      Entities, Value Objects (Money, Currency), Enums, Invariants   |
-|       |                                                                               |
-|  [ Infrastructure ]    Spring Data JPA, PostgreSQL Adapters, HikariCP, Security / JWT |
-+---------------------------------------------------------------------------------------+
-                                           |  JDBC / Hikari Connection Pool
-                                           v
-+---------------------------------------------------------------------------------------+
-|                               PostgreSQL 16 Database                                  |
-|  - btree_gist temporal exclusion constraint preventing overlapping effective dates    |
-|  - PERCENTILE_CONT(0.5) PostgreSQL continuous percentile medians                      |
-|  - Append-only immutable audit trail with before/after snapshots                      |
-|  - High-performance deterministic 10,000 employee batch seed engine                  |
-+---------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+|                            Frontends (React 18 & Angular 18 Parity)                           |
+|  [React 18]: Vite + TypeScript + Tailwind CSS + TanStack Query + Lucide Icons + Recharts     |
+|  [Angular 18]: Standalone Components + Signals + RxJS + Tailwind + @lucide/angular + ng2-charts |
++-----------------------------------------------------------------------------------------------+
+                                               |  HTTPS / REST / JWT
+                                               v
++-----------------------------------------------------------------------------------------------+
+|                               Spring Boot 3.3.4 (Java 21/22)                                  |
+|                                                                                               |
+|  [ API Layer ]         REST Controllers, OpenAPI/Swagger 3, DTOs, Exception Advice            |
+|       |                                                                                       |
+|  [ Application Layer ] Use Cases / Services, Inbound/Outbound Ports, DTO Mappers             |
+|       |                                                                                       |
+|  [ Domain Layer ]      Entities, Value Objects (Money, Currency), Enums, Invariants           |
+|       |                                                                                       |
+|  [ Infrastructure ]    Spring Data JPA, PostgreSQL Adapters, HikariCP, Security / JWT         |
++-----------------------------------------------------------------------------------------------+
+                                               |  JDBC / Hikari Connection Pool
+                                               v
++-----------------------------------------------------------------------------------------------+
+|                               PostgreSQL 16 Database                                          |
+|  - btree_gist temporal exclusion constraint preventing overlapping effective dates            |
+|  - PERCENTILE_CONT(0.5) PostgreSQL continuous percentile medians                              |
+|  - Append-only immutable audit trail with before/after snapshots                              |
+|  - High-performance deterministic 10,000 employee batch seed engine                          |
++-----------------------------------------------------------------------------------------------+
 ```
 
 ### Key Architectural Safeguards
@@ -150,6 +151,20 @@ npm install
 npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+#### 4. Start Angular 18 Frontend
+```powershell
+cd frontend-angular
+npm install --legacy-peer-deps
+npm start
+```
+Open [http://localhost:4200](http://localhost:4200) in your browser (API requests automatically proxy to Spring Boot at `http://localhost:8080`).
+
+To run the Angular unit test suite:
+```powershell
+cd frontend-angular
+npm test -- --watch=false --browsers=ChromeHeadless
+```
 
 ---
 
