@@ -10,7 +10,7 @@
 The application is deployed across a production-grade multi-cloud free-tier architecture:
 
 - **Frontend (Angular 18)**: **Firebase Hosting** CDN → [https://priyanshi-dev.web.app](https://priyanshi-dev.web.app)
-- **Backend (Spring Boot 3.3.4)**: **Google Cloud Run** (Java 21 container, scale-to-zero)
+- **Backend (Spring Boot 3.3.4)**: **Google Cloud Run** → [https://compensation-backend-846701126658.us-central1.run.app](https://compensation-backend-846701126658.us-central1.run.app)
 - **Database (PostgreSQL)**: **Neon PostgreSQL** (Serverless, SSL required, 10,000 employees migrated)
 - **Deployment Documentation**: Complete guide in [docs/deployment-guide.md](docs/deployment-guide.md)
 
