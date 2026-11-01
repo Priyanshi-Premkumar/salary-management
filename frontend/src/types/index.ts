@@ -25,6 +25,7 @@ export interface EmployeeSummary {
   employeeCode: string;
   firstName: string;
   lastName: string;
+  fullName?: string;
   email: string;
   phone: string;
   country: string;
@@ -32,20 +33,25 @@ export interface EmployeeSummary {
   designation: string;
   employmentStatus: EmploymentStatus;
   joiningDate: string;
+  currentBaseSalary?: number | null;
+  currentBonus?: number | null;
+  currency?: string | null;
+  compensationEffectiveFrom?: string | null;
+  currentCompensation?: CompensationSummary | null;
 }
 
 export interface CompensationSummary {
-  id: number;
+  id?: number;
   baseSalary: number;
   bonus: number;
   currency: string;
   effectiveFrom: string;
-  effectiveTo: string | null;
-  totalCompensation: number;
+  effectiveTo?: string | null;
+  totalCompensation?: number;
 }
 
 export interface EmployeeDetail extends EmployeeSummary {
-  currentCompensation: CompensationSummary | null;
+  currentCompensation?: CompensationSummary | null;
 }
 
 export interface CreateEmployeeRequest {

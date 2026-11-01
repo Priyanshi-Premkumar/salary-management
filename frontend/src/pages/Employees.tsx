@@ -73,9 +73,9 @@ export const Employees: React.FC = () => {
       const detail = await api.employees.getById(emp.id);
       setRevisionEmployee(emp);
       setRevisionComp({
-        base: detail.currentCompensation?.baseSalary || 70000,
-        bonus: detail.currentCompensation?.bonus || 5000,
-        curr: detail.currentCompensation?.currency || (emp.country === 'India' ? 'INR' : 'USD'),
+        base: Number(detail.currentCompensation?.baseSalary ?? detail.currentBaseSalary ?? 70000),
+        bonus: Number(detail.currentCompensation?.bonus ?? detail.currentBonus ?? 5000),
+        curr: detail.currentCompensation?.currency || detail.currency || (emp.country === 'India' ? 'INR' : 'USD'),
       });
       setIsRevisionModalOpen(true);
     } catch (err: any) {

@@ -61,10 +61,35 @@ export const EmployeeDetail: React.FC = () => {
     );
   }
 
-  const curr = employee.currentCompensation?.currency || (employee.country === 'India' ? 'INR' : 'USD');
-  const baseSalary = employee.currentCompensation?.baseSalary || 0;
-  const bonus = employee.currentCompensation?.bonus || 0;
+  const activeHistory = history?.find((h: any) => h.status === 'CURRENT') || 
+                        history?.find((h: any) => !h.effectiveTo) ||
+                        history?.[0];
+
+  const curr = employee.currentCompensation?.currency || 
+               employee.currency || 
+               activeHistory?.currency || 
+               (employee.country === 'India' ? 'INR' : 'USD');
+
+  const baseSalary = Number(
+    employee.currentCompensation?.baseSalary ?? 
+    employee.currentBaseSalary ?? 
+    activeHistory?.baseSalary ?? 
+    0
+  );
+
+  const bonus = Number(
+    employee.currentCompensation?.bonus ?? 
+    employee.currentBonus ?? 
+    activeHistory?.bonus ?? 
+    0
+  );
+
   const totalComp = baseSalary + bonus;
+
+  const effectiveDate = employee.currentCompensation?.effectiveFrom || 
+                        employee.compensationEffectiveFrom || 
+                        activeHistory?.effectiveFrom || 
+                        employee.joiningDate;
 
   return (
     <div className="space-y-8">
@@ -192,7 +217,7 @@ export const EmployeeDetail: React.FC = () => {
           <span>
             Effective from:{' '}
             <strong className="text-slate-200">
-              {employee.currentCompensation?.effectiveFrom || employee.joiningDate}
+              {effectiveDate}
             </strong>{' '}
             to <strong className="text-slate-200">Present (Open-ended)</strong>
           </span>

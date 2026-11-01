@@ -28,6 +28,20 @@ public class EmployeeResponses {
         private BigDecimal currentBonus;
         private String currency;
         private LocalDate compensationEffectiveFrom;
+        private CurrentCompensationSummary currentCompensation;
+    }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CurrentCompensationSummary {
+        private BigDecimal baseSalary;
+        private BigDecimal bonus;
+        private String currency;
+        private LocalDate effectiveFrom;
+        private LocalDate effectiveTo;
+        private BigDecimal totalCompensation;
     }
 
     @Getter

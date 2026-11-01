@@ -14,6 +14,7 @@ import com.acme.compensation.shared.util.CsvSanitizer;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
@@ -169,6 +170,19 @@ public class EmployeeService {
 
     private EmployeeResponses.EmployeeResponse mapToResponse(
             Employee employee, CompensationLookupPort.ActiveCompensationSummary comp) {
+
+        EmployeeResponses.CurrentCompensationSummary compSummary = comp != null
+                ? EmployeeResponses.CurrentCompensationSummary.builder()
+                        .baseSalary(comp.baseSalary())
+                        .bonus(comp.bonus())
+                        .currency(comp.currency())
+                        .effectiveFrom(comp.effectiveFrom())
+                        .effectiveTo(null)
+                        .totalCompensation((comp.baseSalary() != null ? comp.baseSalary() : BigDecimal.ZERO)
+                                .add(comp.bonus() != null ? comp.bonus() : BigDecimal.ZERO))
+                        .build()
+                : null;
+
         return EmployeeResponses.EmployeeResponse.builder()
                 .id(employee.getId())
                 .employeeCode(employee.getEmployeeCode())
@@ -186,6 +200,7 @@ public class EmployeeService {
                 .currentBonus(comp != null ? comp.bonus() : null)
                 .currency(comp != null ? comp.currency() : null)
                 .compensationEffectiveFrom(comp != null ? comp.effectiveFrom() : null)
+                .currentCompensation(compSummary)
                 .build();
     }
 }
