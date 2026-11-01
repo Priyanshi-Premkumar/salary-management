@@ -26,6 +26,7 @@ secrets.yaml
 ehthumbs.db
 Thumbs.db
 desktop.ini
+~$*
 
 # 3. IDEs & Code Editors
 .idea/

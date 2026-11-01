@@ -13,7 +13,7 @@ ACME CompensationOS is deployed across a decoupled, multi-cloud architecture opt
                                       v
                     +------------------------------------+
                     |        Firebase Hosting            |
-                    |  (https://priyanshi-dev.web.app)   |
+                    | (https://acme-compensation-os.web.app)|
                     |   Global CDN Edge / Angular SPA    |
                     +-----------------+------------------+
                                       |
@@ -131,9 +131,9 @@ gcloud run deploy compensation-backend \
 cd frontend-angular
 npm run build
 cd ..
-firebase deploy --only hosting --project priyanshi-dev
+firebase deploy --only hosting --project acme-compensation-os
 ```
-**Live Firebase Hosting URL**: https://priyanshi-dev.web.app
+**Live Firebase Hosting URL**: https://acme-compensation-os.web.app (also https://priyanshi-dev.web.app)
 
 ---
 
