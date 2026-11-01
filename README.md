@@ -5,6 +5,17 @@
 
 ---
 
+## 2. Free-Tier Cloud Deployment
+
+The application is deployed across a production-grade multi-cloud free-tier architecture:
+
+- **Frontend (Angular 18)**: **Firebase Hosting** CDN → [https://priyanshi-dev.web.app](https://priyanshi-dev.web.app)
+- **Backend (Spring Boot 3.3.4)**: **Google Cloud Run** (Java 21 container, scale-to-zero)
+- **Database (PostgreSQL)**: **Neon PostgreSQL** (Serverless, SSL required, 10,000 employees migrated)
+- **Deployment Documentation**: Complete guide in [docs/deployment-guide.md](docs/deployment-guide.md)
+
+---
+
 ## 1. System Overview & Architecture
 
 ACME CompensationOS is built according to **Domain-Driven Design (DDD)** and **Clean Architecture (Hexagonal / Ports and Adapters)** principles. It provides enterprise-grade compensation workflows, effective-dated salary revisions, atomic change auditing, and statistical compensation analytics across multiple isolated sovereign currencies.
